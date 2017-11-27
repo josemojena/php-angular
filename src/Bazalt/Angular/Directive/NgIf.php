@@ -2,6 +2,8 @@
 
 namespace Bazalt\Angular\Directive;
 
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+
 class NgIf extends \Bazalt\Angular\Directive
 {
     public function apply()
@@ -11,8 +13,13 @@ class NgIf extends \Bazalt\Angular\Directive
 
         $value = $this->scope->getValue($attrValue);
         $this->element->removeAttribute('ng-if');
-        if (!$value) {
-            $parent = $this->element->parentNode;
+
+        $language = new ExpressionLanguage();
+
+        if (!$language->evaluate(
+            $attrValue,
+            [ 'vm' => (object)[ 'lionadminSettingsLayoutService' => $this->scope['lionadminSettingsLayoutService'], 'data' => $this->scope['data']]]
+        )) {            $parent = $this->element->parentNode;
             $parent->removeChild($this->element);
         }
     }
