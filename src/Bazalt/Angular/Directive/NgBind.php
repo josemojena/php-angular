@@ -10,7 +10,7 @@ class NgBind extends \Bazalt\Angular\Directive
         $filters = isset($matches['filters']) ? explode('|', trim($matches['filters'], ' |')) : [];
 
         $value = $this->scope->getValue($key);
-        if (!$value) {
+        if (!$value && $value != '') {
             return $matches[0];
         }
         return $value;
