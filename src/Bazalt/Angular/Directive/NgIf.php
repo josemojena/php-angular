@@ -18,7 +18,7 @@ class NgIf extends \Bazalt\Angular\Directive
 
         if (!$language->evaluate(
             $attrValue,
-            [ 'vm' => (object)[ 'lionadminSettingsLayoutService' => $this->scope['lionadminSettingsLayoutService'], 'data' => $this->scope['data']]]
+            [ 'vm' => (object)[ 'variables' => $this->scope['variables'], 'data' => $this->scope['data']]]
         )) {            $parent = $this->element->parentNode;
             $parent->removeChild($this->element);
         }
