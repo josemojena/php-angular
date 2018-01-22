@@ -35,5 +35,3 @@ class NgBind extends \Bazalt\Angular\Directive
         $this->element->nodeValue = preg_replace_callback('|{{\s*(?<value>[a-z0-9\.]*)\s*(\|\s*(?<filters>.*))?\s*}}|im', [$this, 'parseValue'], $this->element->wholeText);
     }
 }
-
-//function probando($arg1,$arg2,$arg3) { return 'you got it!' . '$arg1' .$arg1 .  '$arg2' .$arg2 . '$arg3' .$arg3; }
