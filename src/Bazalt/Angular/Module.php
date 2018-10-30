@@ -23,7 +23,7 @@ class Module
         $this->rootScope = new Scope();
     }
 
-    public function directives()
+	public function directives()
     {
         return $this->directives;
     }

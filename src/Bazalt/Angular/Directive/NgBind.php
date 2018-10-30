@@ -7,15 +7,19 @@ class NgBind extends \Bazalt\Angular\Directive
 {
     protected function parseValue($matches)
     {
+
         $key = trim($matches['value']);
         $filters = isset($matches['filters']) ? explode('|', trim($matches['filters'], ' |')) : [];
 
         $value = $this->scope->getValue($key);
+        
+
         if (!$value && $value != '') {
             return $matches[0];
         }
         
         foreach ( $filters as $filter ){
+
             $filter_split = explode( ':', $filter);
             $filter_function = array_slice($filter_split, 0, 1);
             $filter_function = trim($filter_function[0]);

@@ -37,6 +37,7 @@ class Parse
         if ($node instanceof \DOMElement) {
             for ($j = 0; $j < $node->attributes->length; $j++) {
                 $attribute = $node->attributes->item($j);
+
                 foreach ($directives as $name => $directive) {
                     if (strpos($directive['restrict'], 'A') !== false) {
                         if ($name == $attribute->name) {
